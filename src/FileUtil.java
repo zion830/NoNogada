@@ -4,6 +4,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 class FileUtil {
 
+    // txt 파일 내용을 String 객체로 변경
     public static String getFileContents(File file) {
         StringBuilder result = new StringBuilder();
         try {
@@ -21,5 +22,14 @@ class FileUtil {
         }
 
         return result.toString();
+    }
+
+    // 필요할 경우 확장자 설정
+    public static String addFileExtIfNecessary(String file, String ext) {
+        if (file.lastIndexOf('.') == -1) {
+            file += ext;
+        }
+
+        return file;
     }
 }
