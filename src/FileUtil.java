@@ -11,8 +11,9 @@ class FileUtil {
             BufferedReader in;
             in = new BufferedReader(new FileReader(file));
             String line = in.readLine();
+
             while (line != null) {
-                result.append(line).append("\n");
+                result.append(LetterUtil.convert(line)).append("\n");
                 line = in.readLine();
             }
         } catch (FileNotFoundException ex) {
@@ -25,7 +26,7 @@ class FileUtil {
     }
 
     // 필요할 경우 확장자 설정
-    public static String addFileExtIfNecessary(String file, String ext) {
+    static String addFileExtIfNecessary(String file, String ext) {
         if (file.lastIndexOf('.') == -1) {
             file += ext;
         }
